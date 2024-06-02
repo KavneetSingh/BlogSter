@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <h1 class="site-title">Blogster</h1>
+    <% for(let post of posts){ %>
+        <div class="post">
+            <h3 class="user"> @<%= post.username %></h3>
+            <h1 class="title"><%= post.title %></h1>
+            <h5 class="content"><%= post.content %></h5>
+            <a href="/posts/<%=post.id%>/edit">Edit post</a>
+            <a href="/posts/<%=post.id%>">View in detail</a>
+            <form method="POST" action="/posts/<%=post.id%>?_method=DELETE">
+                <button class="del">Delete post</button>
+            </form>
+        </div>
+    <% } %>
+    <div class="add">
+        <a id="new" href="/posts/create">Add new blog</a>
+    </div>
+    
+</body>
+</html>
+
+
